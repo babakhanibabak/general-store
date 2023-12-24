@@ -29,15 +29,16 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Scaffold(
-                        topBar = { TopAppBar(title = { Text(text = "General Store") },
-                            colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Green)
-                            ) }
-                    ) {padding->
+                        topBar = {
+                            TopAppBar(
+                                title = { Text(text = "General Store") },
+                                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Green)
+                            )
+                        }
+                    ) { padding ->
                         LogInScreen(
                             modifier = Modifier.padding(padding),
-                            countryList = (padding)
                         )
-
                     }
                 }
             }
