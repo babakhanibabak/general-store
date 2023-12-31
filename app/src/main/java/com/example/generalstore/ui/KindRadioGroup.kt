@@ -14,6 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.generalstore.ui.theme.GeneralStoreTheme
 
 @Composable
 fun KindRadioGroup(
@@ -21,8 +23,6 @@ fun KindRadioGroup(
     selected: String,
     setSelected: (selected: String) -> Unit
 ) {
-
-
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.Start,
@@ -31,13 +31,14 @@ fun KindRadioGroup(
         items.forEach { item ->
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-                modifier =Modifier.selectable(
+                modifier = Modifier.selectable(
                     selected = (item == selected),
                     onClick = { setSelected(item) },
                     role = Role.RadioButton
                 )
             ) {
-                RadioButton(selected = selected == item,
+                RadioButton(
+                    selected = selected == item,
                     onClick = { setSelected(item) }, enabled = true
                 )
                 Text(text = item, modifier = Modifier)
@@ -56,6 +57,18 @@ fun KindRadioGroupUsage() {
         KindRadioGroup(
             items = radioKinds,
             selected, setSelected
+        )
+    }
+}
+
+@Preview
+@Composable
+fun KindRadioGroupPreview() {
+    GeneralStoreTheme {
+        KindRadioGroup(
+            items = listOf("Male", "Female"),
+            selected = "Male",
+            setSelected = {},
         )
     }
 }

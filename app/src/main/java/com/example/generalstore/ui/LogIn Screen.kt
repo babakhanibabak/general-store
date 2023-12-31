@@ -37,7 +37,7 @@ import com.example.generalstore.ui.theme.GeneralStoreTheme
 @Composable
 fun LogInScreen(
     modifier: Modifier = Modifier,
-    onLetsShopClick:()-> Unit
+    onLetsShopClick: () -> Unit
 ) {
 
     val image1 = painterResource(id = R.drawable.firstphoto)
@@ -91,8 +91,7 @@ fun LogInScreen(
             InfoText(text = "Gender")
             KindRadioGroupUsage()
             Spacer(modifier = Modifier.size(25.dp))
-            MyButton(text = "Let's Shop", onClick = {onLetsShopClick})
-
+            MyButton(text = "Let's Shop", onClick = onLetsShopClick)
         }
     }
 }

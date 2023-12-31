@@ -39,12 +39,13 @@ class MainActivity : ComponentActivity() {
                     ) { padding ->
                         LogInScreen(
                             modifier = Modifier.padding(padding),
-                            onLetsShopClick = {goToDetailActivity()}
-                        )}
+                            onLetsShopClick = { goToDetailActivity() }
+                        )
                     }
                 }
             }
         }
+    }
 
     private fun goToDetailActivity() {
         val i = Intent(this@MainActivity, DetailActivity::class.java)
