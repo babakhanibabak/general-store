@@ -1,6 +1,5 @@
 package com.example.generalstore
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,15 +9,18 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.generalstore.ui.LogInScreen
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.generalstore.ui.ProductScreen
+import com.example.generalstore.ui.ProductsData
+import com.example.generalstore.ui.products
 import com.example.generalstore.ui.theme.GeneralStoreTheme
 
-class MainActivity : ComponentActivity() {
+class DetailActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,27 +31,23 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Scaffold(
-                        topBar = {
-                            TopAppBar(
-                                title = { Text(text = "General Store") },
-                                colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.Green)
-                            )
-                        }
-                    ) { padding ->
-                        LogInScreen(
-                            modifier = Modifier.padding(padding),
-                            onLetsShopClick = {goToDetailActivity()}
-                        )}
-                    }
+Scaffold(topBar = { TopAppBar(title = {"Products" },
+    colors =TopAppBarDefaults.
+    smallTopAppBarColors(containerColor = Color.Green) )}) {
+padding->
+    ProductScreen( modifier= Modifier.padding(padding),
+        productsList = )
+}
+}
                 }
             }
         }
+    }
 
-    private fun goToDetailActivity() {
-        val i = Intent(this@MainActivity, DetailActivity::class.java)
-        startActivity(i)
+@Preview
+@Composable
+fun DetailActivityPreview(){
+    GeneralStoreTheme{
+        ProductScreen(modifier = Modifier, )
     }
 }
-
-
